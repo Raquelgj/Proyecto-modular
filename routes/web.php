@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,6 +58,10 @@ Route::get('/checkout/success/{orderId}', [CheckoutController::class, 'showSucce
 
 Route::get('/categoria/{categoryId}', [ProductController::class, 'showByCategory'])->name('products.category');
 
+
+// ruta formulario de contáctanos
+
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 require __DIR__.'/auth.php';

@@ -1,7 +1,27 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+
 /* barra navegación */
 .navbar-custom {
     background-color: #ECF4F2 !important;
 }
+.navbar-brand{
+    margin-left: 50px;
+}
+
 /* botones card carrito comprar */
 .custom-button {
     background-color: white;
@@ -17,3 +37,77 @@
     background-color: black;
     color: white;
 }
+/* footer */
+
+.footer-custom {
+    background-color: #ECF4F2 !important;
+    color: #000; /* texto oscuro */
+    clear: both;
+    margin-top: 0;
+}
+.footer-custom a {
+    color: #000;
+}
+.footer-custom a:hover {
+    text-decoration: underline;
+}
+/* Estilo para el icono emergente de WhatsApp */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    border-radius: 50%; /* Asegura que el icono sea completamente redondo */
+    padding: 20px; /* Asegura que el icono tenga un tamaño adecuado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    width: 60px; /* Ancho fijo para mantener la forma redonda */
+    height: 60px; /* Altura fija para mantener la forma redonda */
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.1); /* Efecto de hover para agrandar el icono */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .whatsapp-icon {
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+        font-size: 26px;
+    }
+}
+
+/* imagen sobre nosotros */
+.rounded-image {
+    border-radius: 15px; 
+}
+
+/* sobre nosotros texto */
+
+
+.row.align-items-start {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.col-md-6 {
+    flex: 0 0 48%; 
+}
+
+#sobre-nosotros-title {
+    font-size: 2.5rem; 
+    font-weight: bold; 
+}
+/* redes texto */
+.redes{
+    margin-right: 15px;
+}
+
