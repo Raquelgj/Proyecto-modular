@@ -12,7 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Filters\SelectFilter;  
+use Filament\Tables\Filters\SelectFilter;
 use App\Models\Category;
 
 
@@ -38,8 +38,8 @@ class ProductResource extends Resource
                     ->required(),  // Campo obligatorio
             ]);
     }
-    
-    
+
+
 
     public static function table(Table $table): Table
     {
@@ -48,13 +48,19 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('name')->label('Nombre')->searchable(),
                 Tables\Columns\TextColumn::make('price')->label('Precio'),
                 Tables\Columns\TextColumn::make('stock')->label('Stock'),
-                Tables\Columns\ImageColumn::make('image')->label('Imagen')->circular(),
+                Tables\Columns\ImageColumn::make('image')
+                ->label('Imagen')
+                ->url(fn($record) => asset('storage/' . $record->image)) 
+                ->circular(),
+            
+            
+
             ])
             ->filters([
                 SelectFilter::make('category')
-                ->label('Categoría')
-                ->relationship('category', 'name') // Relación con la categoría, usando 'name' como el campo que mostrarás
-                ->searchable(), // Opcional, para que puedas buscar entre las categorías
+                    ->label('Categoría')
+                    ->relationship('category', 'name') // Relación con la categoría, usando 'name' como el campo que mostrarás
+                    ->searchable(), // Opcional, para que puedas buscar entre las categorías
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -65,7 +71,7 @@ class ProductResource extends Resource
                 ]),
             ]);
     }
-    
+
 
     public static function getRelations(): array
     {

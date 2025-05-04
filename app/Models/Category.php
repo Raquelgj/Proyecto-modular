@@ -9,6 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    // Si usas esta propiedad en tu migración
+    
     protected $fillable = ['name'];
+    public function products()
+    {
+        return $this->hasMany(Product::class);  
+    }
 }

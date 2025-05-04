@@ -20,6 +20,7 @@
         <!-- iconos bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     </head>
 

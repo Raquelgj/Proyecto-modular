@@ -7,14 +7,14 @@
             @foreach ($productos as $producto)
                 <div class="col">
                     <div class="card" style="width: 18rem;"> <!-- Bootstrap card -->
-                        <img src="{{ asset('storage/products/' . $producto->image) }}" alt="{{ $producto->name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <img src="{{ asset('storage/' . $producto->image) }}" alt="{{ $producto->name }}" class="card-img-top" style="height: 400px; object-fit: cover;">
                         <div class="card-body text-dark">
                             <h5 class="card-title">{{ $producto->name }}</h5>
                             <p class="card-text">{{ $producto->description }}</p>
                             <p class="font-semibold">{{ $producto->price }} €</p>
                             <form action="{{ route('cart.add', $producto->id) }}" method="POST">
                     @csrf  <!-- Token CSRF para proteger la solicitud -->
-                    <button type="submit" class="btn btn-primary w-100">Añadir al carrito</button>
+                    <button type="submit" class="custom-button">Añadir al carrito</button>
                 </form>
 
                         </div>

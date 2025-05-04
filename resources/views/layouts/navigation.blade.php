@@ -1,7 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm navbar-custom">
+
     <div class="container-fluid">
         <!-- Nombre de la página -->
-        <a class="navbar-brand" href="{{ route('dashboard') }}">AquaTethys</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
+    <img src="{{ asset('images/logo.png') }}" alt="Logo de AquaTethys" style="height: 40px;">
+</a>
+
 
         <!-- Botón responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -17,7 +21,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        Categorías
+                        Alimentación
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Peces</a></li>
@@ -76,11 +80,14 @@
                 @foreach($cart as $productId => $item)
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="me-2">
-                            <img src="{{ asset('images/' . $item['image']) }}" alt="{{ $item['name'] }}" width="50">
+                            <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" width="50">
                         </div>
                         <div class="flex-fill">
                             <div>{{ $item['name'] }}</div>
-                            <div class="text-muted">Cant: {{ $item['quantity'] }} | ${{ $item['price'] }}</div>
+                            <div class="text-muted">
+                                Cant: {{ $item['quantity'] }} |
+                                {{ number_format($item['price'], 2, ',', '.') }} €
+                            </div>
                         </div>
                         <form action="{{ route('cart.remove', $productId) }}" method="POST">
                             @csrf
@@ -90,8 +97,13 @@
                     </li>
                 @endforeach
             </ul>
+
+            @php
+                $total = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
+            @endphp
+
             <div class="mt-3">
-                <strong>Total: ${{ array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart)) }}</strong>
+                <strong>Total: {{ number_format($total, 2, ',', '.') }} €</strong>
                 <a href="{{ route('cart.index') }}" class="btn btn-primary btn-sm w-100 mt-2">Ir al carrito</a>
             </div>
         @else
@@ -99,4 +111,3 @@
         @endif
     </div>
 </div>
-

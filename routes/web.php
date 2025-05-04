@@ -5,14 +5,20 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ProductController;
+use App\Models\Category;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $categorias = Category::all();  // Obtener todas las categorías
+    return view('dashboard', compact('categorias'));  // Pasar las categorías a la vista
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,6 +50,12 @@ Route::delete('/cart/{productId}/remove', [CartController::class, 'remove'])->na
 
 // Ruta para mostrar la página de éxito después de la compra
 Route::get('/checkout/success/{orderId}', [CheckoutController::class, 'showSuccessPage'])->name('checkout.success');
+
+
+
+
+
+Route::get('/categoria/{categoryId}', [ProductController::class, 'showByCategory'])->name('products.category');
 
 
 

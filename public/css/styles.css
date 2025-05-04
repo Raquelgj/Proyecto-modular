@@ -1,0 +1,19 @@
+/* barra navegación */
+.navbar-custom {
+    background-color: #ECF4F2 !important;
+}
+/* botones card carrito comprar */
+.custom-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 9999px; /* totalmente redondeado */
+    padding: 10px 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: black;
+    color: white;
+}
