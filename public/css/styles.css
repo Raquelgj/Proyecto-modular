@@ -110,4 +110,61 @@ main {
 .redes{
     margin-right: 15px;
 }
+/* Estilo del banner de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    text-align: center;
+    display: none; /* Inicialmente oculto */
+    z-index: 1000;
+    font-size: 16px;
+}
+
+.cookie-content p {
+    display: inline-block;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.cookie-content a {
+    color: #721c24;
+    text-decoration: underline;
+}
+
+.cookie-content button {
+    margin-left: 10px;
+}
+
+/* Botones */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+/* color número de productos carrito */
+/* .badge-orange {
+    background-color: #ff8800;
+    color: white;
+} */
+
 

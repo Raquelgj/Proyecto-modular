@@ -12,6 +12,8 @@ use App\Filament\Resources\OrderResource\Pages\ViewOrder;  // Corregido
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     public static function query(): \Illuminate\Database\Eloquent\Builder
     {
         return parent::query()
@@ -38,7 +40,7 @@ class OrderResource extends Resource
             Tables\Columns\TextColumn::make('total_price')->money('EUR'),
             Tables\Columns\TextColumn::make('status')->badge(),
             // Mostrar el nombre del producto asociado con cada orden
-            Tables\Columns\TextColumn::make('items.product.name')->label('Product'), // Esto debería funcionar si la relación 'items' está bien definida
+            Tables\Columns\TextColumn::make('items.product.name')->label('Producto'), // Esto debería funcionar si la relación 'items' está bien definida
         ])
         ->actions([
             Tables\Actions\ViewAction::make(),

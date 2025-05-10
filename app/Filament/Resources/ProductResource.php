@@ -32,10 +32,10 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('price')->required()->numeric()->label('Precio'),
                 Forms\Components\TextInput::make('stock')->required()->numeric()->label('Stock'),
                 Forms\Components\FileUpload::make('image')->image()->directory('products')->label('Imagen'),
-                Forms\Components\Select::make('category_id')  // Campo select para elegir la categoría
-                    ->label('Categoría')
-                    ->options(Category::all()->pluck('name', 'id'))  // Opciones de categorías
-                    ->required(),  // Campo obligatorio
+                Forms\Components\Select::make('category_id')
+                ->label('Categoría')
+                ->relationship('category', 'name')
+                ->required(),
             ]);
     }
 
@@ -50,8 +50,9 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('stock')->label('Stock'),
                 Tables\Columns\ImageColumn::make('image')
                 ->label('Imagen')
-                ->url(fn($record) => asset('storage/' . $record->image)) 
-                ->circular(),
+                ->url(fn($record) => (asset('storage/' . $record->image))) 
+                ->width(80) 
+                ->height(80)
             
             
 

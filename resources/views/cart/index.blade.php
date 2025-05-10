@@ -51,7 +51,7 @@
                 </table>
                 <h3>Total:{{ number_format(array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)), 2, ',', '.') }}€</h3>
 
-                <a href="{{ route('checkout.index') }}" class="btn btn-primary">Proceder al Pago</a>
+                <a href="{{ route('checkout.index') }}" class="btn btn-success">Proceder al Pago</a>
             </div>
         @else
             <p>Tu carrito está vacío. Añade productos antes de comprar.</p>

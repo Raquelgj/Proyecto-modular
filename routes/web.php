@@ -55,6 +55,8 @@ Route::get('/checkout/success/{orderId}', [CheckoutController::class, 'showSucce
 
 
 
+Route::get('/categoria/{id}', [ProductController::class, 'showByCategory'])->name('productos.categoria');
+
 
 Route::get('/categoria/{categoryId}', [ProductController::class, 'showByCategory'])->name('products.category');
 
