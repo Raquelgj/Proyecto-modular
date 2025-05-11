@@ -37,8 +37,10 @@ main {
 }
 
 .custom-button:hover {
-    background-color: black;
+    background-color: #a3cfbb;
     color: white;
+    border:none;
+   
 }
 /* footer */
 
@@ -181,6 +183,7 @@ main {
     padding: 0 0px; 
     font-size: 1rem; 
     white-space: nowrap; 
+    line-height: 1;
 }
 
 /* Hover para el botón */
@@ -188,8 +191,24 @@ main {
     background-color: #a3cfbb;
     color: white;
 }
-
-
+.custom-btn-iniciar{
+        color: #559678;
+        text-decoration: none;
+}
+.custom-btn-registrarse{
+  display: inline-block;
+    background-color: #559678;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none; /* importante para eliminar el subrayado */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.custom-btn-registrarse:hover{
+    background-color: #89bfa7;
+}
 
 
 /* imagen carrousel */
@@ -224,7 +243,7 @@ main {
 }
 
 .form-label {
-    font-weight: 600;
+    font-weight:600;
 }
 
 form .btn {

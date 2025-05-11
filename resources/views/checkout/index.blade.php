@@ -61,7 +61,7 @@
 
         <form method="POST" action="#">
             @csrf
-            <button type="submit" class="btn btn-success" disabled>Confirmar Pedido</button>
+            <button type="submit" class="btn btn-success" >Confirmar Pedido</button>
             <p class="text-muted mt-2"><small>Completa dirección y método de pago para habilitar esta acción.</small></p>
         </form>
     </div>

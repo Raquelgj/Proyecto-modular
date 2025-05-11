@@ -26,7 +26,6 @@
                                 </div>
                                 <div class="mt-3 carousel-caption d-block position-static">
                                     <h5 class="text-dark">{{ $product->name }}</h5>
-                                    <p class="text-dark">{{ $product->description }}</p>
                                     <p class="text-dark"><strong>Precio:</strong> {{ $product->price }}€</p>
                                 </div>
                             </div>

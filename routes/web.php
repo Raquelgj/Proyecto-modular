@@ -10,15 +10,18 @@ use App\Models\Category;
 use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
-    return view('welcome');
+    $categorias = Category::all();
+    $featuredProducts = Product::where('featured', true)->take(6)->get();
+
+    return view('dashboard', compact('categorias', 'featuredProducts'));
 });
 
 
 
 Route::get('/dashboard', function () {
     $categorias = Category::all();  // Obtener todas las categorías
-    return view('dashboard', compact('categorias'));  // Pasar las categorías a la vista
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('dashboard', compact('categorias'));  
+})->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {

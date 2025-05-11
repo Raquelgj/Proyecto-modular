@@ -63,8 +63,8 @@
                 </ul>
             </div>
             @else
-            <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Iniciar sesión</a>
-            <a href="{{ route('register') }}" class="btn btn-primary">Registrarse</a>
+            <a href="{{ route('login') }}" class="custom-btn-iniciar me-2">Iniciar sesión</a>
+            <a href="{{ route('register') }}" class="custom-btn-registrarse">Registrarse</a>
             @endauth
         </div>
     </div>
