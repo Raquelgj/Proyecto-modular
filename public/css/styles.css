@@ -17,6 +17,9 @@ main {
 /* barra navegación */
 .navbar-custom {
     background-color: #ECF4F2 !important;
+      position: sticky;
+    top: 0;
+    z-index: 1020; /
 }
 .navbar-brand{
     margin-left: 50px;
@@ -161,10 +164,449 @@ main {
 .btn:hover {
     opacity: 0.9;
 }
-/* color número de productos carrito */
-/* .badge-orange {
-    background-color: #ff8800;
+/* boton buscar */
+
+
+.search-input {
+    height: 45px; 
+    font-size: 1.2rem; 
+}
+
+/* Estilo para el botón */
+.custom-btn {
+    background-color: transparent;
+    border: 1px solid #a3cfbb;
+    color: #a3cfbb;
+    height: 40px; 
+    padding: 0 0px; 
+    font-size: 1rem; 
+    white-space: nowrap; 
+}
+
+/* Hover para el botón */
+.custom-btn:hover {
+    background-color: #a3cfbb;
     color: white;
+}
+
+
+
+
+/* imagen carrousel */
+
+/* .carousel-image {
+    max-height: 250px;
+    width: 100%;
+   
 } */
 
+/* Estilos generales para todo el dashboard */
+.container {
+    max-width: 1200px;
+}
 
+.section {
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .img-fluid {
+        width: 100%;
+        height: auto;
+    }
+    .rounded-image {
+        border-radius: 0.5rem;
+    }
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+form .btn {
+    width: 100%;
+}
+
+
+/* Footer general */
+.footer-custom {
+    background-color: #ECF4F2 !important;
+}
+
+/* Asegurarse de que los enlaces se ajusten bien en móviles */
+.footer-custom a {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+    .footer-custom .col-12 {
+        text-align: center; /* Centrar los enlaces legales y las redes sociales en pantallas pequeñas */
+    }
+
+    .footer-custom .redes {
+        font-size: 18px; /* Reducir el tamaño de la fuente de "Redes sociales" */
+        margin-top: 10px;
+    }
+
+    .footer-custom a {
+        font-size: 16px; /* Aumentar un poco el tamaño de los iconos en pantallas pequeñas */
+    }
+
+    .footer-custom .bi {
+        font-size: 24px; /* Aumentar el tamaño de los íconos en móviles */
+    }
+}
+
+/* Para pantallas medianas (tabletas) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .footer-custom .redes {
+        font-size: 20px;
+    }
+
+    .footer-custom a {
+        font-size: 16px; /* Aumentar ligeramente el tamaño de los enlaces */
+    }
+}
+
+/* Para pantallas grandes (escritorios) */
+@media (min-width: 992px) {
+    .footer-custom .redes {
+        font-size: 22px;
+    }
+
+    .footer-custom .bi {
+        font-size: 30px; /* Íconos más grandes en pantallas de escritorio */
+    }
+}
+
+/* Estilo para la sección de perfil */
+.profile-section {
+      background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    justify-content: flex-start; /* No centrado, alineación al principio */
+    text-align: left; /* Alineación de los textos a la izquierda */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+    max-width: 600px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centrado horizontal si el contenido es más pequeño */
+}
+
+/* Estilo para los encabezados */
+.profile-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c; /* Color oscuro */
+}
+
+.profile-header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #4a5568; /* Gris oscuro */
+}
+
+/* Formulario */
+.profile-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Estilo para los labels */
+.profile-label {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #2d3748; /* Color gris oscuro */
+}
+
+/* Estilo para los campos de texto */
+.profile-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0; /* Borde gris claro */
+    width: 100%;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: border 0.3s ease;
+}
+
+/* Efecto al hacer focus en los campos de texto */
+.profile-input:focus {
+    border-color: #63b3ed; /* Azul claro */
+    outline: none;
+    box-shadow: 0 0 0 1px #63b3ed; /* Sombra azul */
+}
+
+/* Estilo para los mensajes de error */
+.profile-error {
+    font-size: 0.875rem;
+    color: #e53e3e; /* Rojo para errores */
+}
+
+/* Estilo para el botón de guardar */
+.profile-button {
+    background-color: #3182ce; /* Azul fuerte */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al hacer hover sobre el botón */
+.profile-button:hover {
+    background-color: #2b6cb0; /* Azul más oscuro */
+}
+
+/* Estilo para los mensajes de éxito */
+.profile-success-message {
+    font-size: 1rem;
+    color: #48bb78; /* Verde */
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* Estilo para la notificación de verificación de email */
+.profile-email-verification {
+    background-color: #faf089; /* Amarillo suave */
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.profile-email-verification p {
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+/* Estilo para el botón de reenvío de verificación */
+.profile-verify-button {
+    text-decoration: underline;
+    color: #63b3ed;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de reenvío de verificación al hacer hover */
+.profile-verify-button:hover {
+    color: #2b6cb0;
+}
+
+/* Estilo general de los botones */
+.profile-button {
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para la sección, sin centrar el contenido */
+.password-section {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    justify-content: flex-start; /* No centrado, alineación al principio */
+    text-align: left; /* Alineación de los textos a la izquierda */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+    max-width: 600px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centrado horizontal si el contenido es más pequeño */
+}
+
+/* Estilo para los encabezados */
+.password-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c; /* Color oscuro */
+}
+
+.password-header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #4a5568; /* Gris oscuro */
+}
+
+/* Formulario */
+.password-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Estilo para los labels */
+.password-label {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #2d3748; /* Color gris oscuro */
+}
+
+/* Estilo para los campos de texto */
+.password-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0; /* Borde gris claro */
+    width: 100%;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: border 0.3s ease;
+}
+
+/* Efecto al hacer focus en los campos de texto */
+.password-input:focus {
+    border-color: #63b3ed; /* Azul claro */
+    outline: none;
+    box-shadow: 0 0 0 1px #63b3ed; /* Sombra azul */
+}
+
+/* Estilo para los mensajes de error */
+.password-error {
+    font-size: 0.875rem;
+    color: #e53e3e; /* Rojo para errores */
+}
+
+/* Estilo para el botón de guardar */
+.password-button {
+    background-color: #3182ce; /* Azul fuerte */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al hacer hover sobre el botón */
+.password-button:hover {
+    background-color: #2b6cb0; /* Azul más oscuro */
+}
+
+/* Estilo para los mensajes de éxito */
+.password-success-message {
+    font-size: 1rem;
+    color: #48bb78; /* Verde */
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+
+/* Estilo para la sección, sin centrar el contenido */
+.account-deletion-section {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    justify-content: flex-start; /* No centrado, alineación al principio */
+    text-align: left; /* Alineación de los textos a la izquierda */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+    max-width: 600px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centrado horizontal si el contenido es más pequeño */
+}
+
+/* Estilo para los encabezados */
+.account-deletion-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c; /* Color oscuro */
+}
+
+.account-deletion-header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #4a5568; /* Gris oscuro */
+}
+
+/* Estilo para el botón de eliminación */
+.account-deletion-button {
+    background-color: #e53e3e; /* Rojo para advertencia */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al hacer hover sobre el botón */
+.account-deletion-button:hover {
+    background-color: #c53030; /* Rojo más oscuro */
+}
+
+/* Estilo para el modal */
+.account-deletion-modal {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Estilo para el campo de texto */
+.account-deletion-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0; /* Borde gris claro */
+    width: 100%;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: border 0.3s ease;
+}
+
+/* Estilo al hacer focus en el campo de texto */
+.account-deletion-input:focus {
+    border-color: #63b3ed; /* Azul claro */
+    outline: none;
+    box-shadow: 0 0 0 1px #63b3ed; /* Sombra azul */
+}
+
+/* Estilo para los botones en el modal */
+.account-deletion-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.account-deletion-modal-buttons .secondary-button {
+    background-color: #edf2f7;
+    color: #4a5568;
+}
+
+.account-deletion-modal-buttons .danger-button {
+    background-color: #e53e3e; /* Rojo para el botón de eliminación */
+    color: #ffffff;
+}
+
+.account-deletion-modal-buttons .secondary-button:hover {
+    background-color: #cbd5e0; /* Gris oscuro */
+}
+
+.account-deletion-modal-buttons .danger-button:hover {
+    background-color: #c53030; /* Rojo más oscuro */
+}

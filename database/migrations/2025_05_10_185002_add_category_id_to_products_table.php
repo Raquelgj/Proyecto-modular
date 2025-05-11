@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null'); // Agregar la columna category_id
-        });
+        // Schema::table('products', function (Blueprint $table) {
+        //     $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null'); // Agregar la columna category_id
+        // });
     }
 
     /**
@@ -21,8 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('category_id'); // Eliminar la columna category_id si se revierte la migración
-        });
+    //     Schema::table('products', function (Blueprint $table) {
+    //         $table->dropColumn('category_id'); // Eliminar la columna category_id si se revierte la migración
+    //     });
+    // }
     }
 };

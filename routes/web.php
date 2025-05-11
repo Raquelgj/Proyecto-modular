@@ -46,12 +46,15 @@ Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('
 
 Route::patch('/cart/{productId}/update', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/{productId}/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/{producto}/add', [CartController::class, 'add'])->name('cart.add');
+
+
 
 
 
 // Ruta para mostrar la página de éxito después de la compra
 Route::get('/checkout/success/{orderId}', [CheckoutController::class, 'showSuccessPage'])->name('checkout.success');
-
 
 
 
@@ -64,6 +67,24 @@ Route::get('/categoria/{categoryId}', [ProductController::class, 'showByCategory
 // ruta formulario de contáctanos
 
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+
+// productos destacados
+
+
+Route::get('/dashboard', function () {
+    $featuredProducts = Product::where('featured', true)->get();
+    return view('dashboard', compact('featuredProducts'));
+})->name('dashboard');
+
+
+//  información del producto
+
+Route::get('/producto/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('producto.show');
+
+// barra de busqueda
+
+Route::get('/buscar', [App\Http\Controllers\ProductController::class, 'buscar'])->name('productos.buscar');
 
 
 require __DIR__.'/auth.php';

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mb-5 pb-5"> <!-- Aquí se añadió mb-5 para margen inferior -->
-    <h1>Dashboard</h1>
+    
 
     @if(session('success'))
     <div class="alert alert-success">
@@ -10,11 +10,43 @@
     </div>
     @endif
 
-    <h2>Bienvenido </h2>
-    <p>
+   
+      <!-- Sección de Productos Destacados -->
+<section class="featured-products py-5" style="padding-top: 80px;">
+    <div class="container">
+        <h3 class="text-center mb-4">Productos Destacados</h3>
+        <div class="p-4 rounded-4" style="background-color: #ECF4F2;">
+            <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    @foreach ($featuredProducts as $index => $product)
+                        <div class="carousel-item @if($index === 0) active @endif">
+                            <div class="d-flex flex-column align-items-center">
+                                <div style="max-width: 500px; height: 400px; overflow: hidden; border-radius: 1rem;">
+                                    <img src="{{ asset('storage/' . $product->image) }}" class="d-block w-100" alt="{{ $product->name }}" style="height: 100%; object-fit: cover;">
+                                </div>
+                                <div class="mt-3 carousel-caption d-block position-static">
+                                    <h5 class="text-dark">{{ $product->name }}</h5>
+                                    <p class="text-dark">{{ $product->description }}</p>
+                                    <p class="text-dark"><strong>Precio:</strong> {{ $product->price }}€</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
-    
-    </p>
 
     <!-- Sección "Sobre nosotros" -->
     <section class="about-us py-5">

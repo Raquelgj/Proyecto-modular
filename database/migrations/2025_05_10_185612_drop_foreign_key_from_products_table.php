@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // Eliminar la restricción de clave foránea
-            $table->dropForeign(['category_id']);
-        });
+        // Schema::table('products', function (Blueprint $table) {
+        //     // Eliminar la restricción de clave foránea
+        //     $table->dropForeign(['category_id']);
+        // });
     }
     
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // Si se revierte la migración, restaurar la clave foránea
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-        });
+    //     Schema::table('products', function (Blueprint $table) {
+    //         // Si se revierte la migración, restaurar la clave foránea
+    //         $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+    //     });
+    // }
     }
-    
 };

@@ -45,7 +45,7 @@
     </div>
 
     <!-- Icono emergente de WhatsApp -->
-    <a href="https://wa.me/685373333" class="whatsapp-icon" target="_blank">
+    <a href="https://wa.me/661312784" class="whatsapp-icon" target="_blank">
         <i class="bi bi-whatsapp fs-2"></i>
     </a>
 

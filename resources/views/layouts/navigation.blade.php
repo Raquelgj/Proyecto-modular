@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm navbar-custom">
-
     <div class="container-fluid">
         <!-- Nombre de la página -->
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <img src="{{ asset('images/logo.png') }}" alt="Logo de AquaTethys" style="height: 40px;">
         </a>
-
 
         <!-- Botón responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -14,7 +12,6 @@
 
         <!-- Contenido colapsable -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Categorías centradas -->
             <!-- Categorías centradas -->
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
                 <li class="nav-item">
@@ -30,30 +27,24 @@
                 @endforeach
             </ul>
 
-
             <!-- Derecha: búsqueda, carrito, perfil -->
-            <form class="d-flex me-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            <form class="d-flex me-3" role="search" method="GET" action="{{ route('productos.buscar') }}">
+                <input class="form-control me-2 search-input" type="search" name="q" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn custom-btn" type="submit">Buscar</button>
             </form>
 
-            <button
-                class="btn btn-outline-secondary me-3 position-relative"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#cartSidebar"
-                aria-controls="cartSidebar">
-                🛒
 
+
+            <!-- Botón carrito -->
+            <button class="btn btn-outline-secondary me-3 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-controls="cartSidebar">
+                🛒
                 @if(session('cart') && count(session('cart')) > 0)
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
                     {{ collect(session('cart'))->sum('quantity') }}
-
                     <span class="visually-hidden">productos en el carrito</span>
                 </span>
                 @endif
             </button>
-
 
             <!-- Perfil y Cerrar sesión -->
             @auth
@@ -78,6 +69,7 @@
         </div>
     </div>
 </nav>
+
 <!-- Sidebar del carrito -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar" aria-labelledby="cartSidebarLabel">
     <div class="offcanvas-header">

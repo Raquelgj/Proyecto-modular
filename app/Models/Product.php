@@ -10,13 +10,16 @@ class Product extends Model
     use HasFactory;
 
     // Agrega aquí los campos que deseas permitir para la asignación masiva
-    protected $fillable = [
-        'name',        // El nombre del producto
-        'description', // La descripción del producto
-        'price',       // El precio del producto
-        'stock',       // El stock del producto
-        'image',       // La imagen del producto (si aplica)
-    ];
+   protected $fillable = [
+    'name',
+    'description',
+    'price',
+    'stock',
+    'image',
+    'category_id',
+    'featured', 
+];
+
     public function carts()
     {
         return $this->hasMany(Cart::class);

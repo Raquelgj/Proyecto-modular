@@ -54,6 +54,20 @@ public function store(Request $request)
     // Redirigir o retornar a una vista
     return redirect()->route('products.index')->with('success', 'Producto creado exitosamente');
 }
+public function show($id)
+{
+    $producto = Product::findOrFail($id);
+    return view('productos.show', compact('producto'));
+}
+public function buscar(Request $request)
+{
+    $query = $request->input('q');
+
+    $productos = Product::where('name', 'LIKE', '%' . $query . '%')->get();
+
+    return view('productos.buscar', compact('productos', 'query'));
+}
+
 
 }
 

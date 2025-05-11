@@ -33,9 +33,12 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('stock')->required()->numeric()->label('Stock'),
                 Forms\Components\FileUpload::make('image')->image()->directory('products')->label('Imagen'),
                 Forms\Components\Select::make('category_id')
-                ->label('Categoría')
-                ->relationship('category', 'name')
-                ->required(),
+                    ->label('Categoría')
+                    ->relationship('category', 'name')
+                    ->required(),
+                Forms\Components\Toggle::make('featured')
+                    ->label('¿Producto destacado?')
+                    ->default(false)
             ]);
     }
 
@@ -49,12 +52,14 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')->label('Precio'),
                 Tables\Columns\TextColumn::make('stock')->label('Stock'),
                 Tables\Columns\ImageColumn::make('image')
-                ->label('Imagen')
-                ->url(fn($record) => (asset('storage/' . $record->image))) 
-                ->width(80) 
-                ->height(80)
-            
-            
+                    ->label('Imagen')
+                    ->url(fn($record) => (asset('storage/' . $record->image)))
+                    ->width(80)
+                    ->height(80),
+                Tables\Columns\TextColumn::make('featured')
+                    ->label('Destacado')
+                    ->getStateUsing(fn($record) => $record->featured ? 'Sí' : 'No')
+                    ->sortable(),
 
             ])
             ->filters([
