@@ -110,7 +110,8 @@
 
         <div class="mt-3">
             <strong>Total: {{ number_format($total, 2, ',', '.') }} €</strong>
-            <a href="{{ route('cart.index') }}" class="btn btn-primary btn-sm w-100 mt-2">Ir al carrito</a>
+            <a href="{{ route('cart.index') }}" class="btn btn-primary btn-sm w-100 mt-2 text-decoration-none" style="background-color: #a3cfbb; color: white;">Ir al carrito</a>
+
         </div>
         @else
         <p>Tu carrito está vacío.</p>

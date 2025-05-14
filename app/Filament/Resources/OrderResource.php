@@ -13,7 +13,10 @@ class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-down-tray';
+     protected static ?string $modelLabel = 'Pedidos';
+    protected static ?string $pluralModelLabel = 'Pedidos';
+    protected static ?string $navigationLabel = 'Pedidos';
     public static function query(): \Illuminate\Database\Eloquent\Builder
     {
         return parent::query()

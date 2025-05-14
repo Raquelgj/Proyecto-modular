@@ -13,8 +13,11 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
+    protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
     protected static ?string $navigationLabel = 'Categorías'; // Nombre que aparecerá en la barra lateral
-    protected static ?string $navigationGroup = 'Productos'; // Agrupado bajo 'Productos' en la barra lateral
+     protected static ?string $modelLabel = 'Categorías';
+    protected static ?string $pluralModelLabel = 'Categorías';
+    
 
     // Método para el formulario de creación/edición
     public static function form(Form $form): Form
