@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm navbar-custom">
     <div class="container-fluid">
         <!-- Nombre de la página -->
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo de AquaTethys" style="height: 40px;">
-        </a>
+    <a class="navbar-brand" href="{{ url('/') }}">
+    <img src="{{ asset('images/logo.png') }}" alt="Logo de AquaTethys" style="height: 40px;">
+</a>
+
 
         <!-- Botón responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -15,7 +16,7 @@
             <!-- Categorías centradas -->
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Inicio</a>
+                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ url('/') }}">Inicio</a
                 </li>
                 @foreach ($categorias as $categoria)
                 <li class="nav-item">

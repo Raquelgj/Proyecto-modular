@@ -37,6 +37,13 @@
             <p>Tu carrito está vacío. Añade productos antes de comprar.</p>
         @endif
 
+        <!-- Mostrar mensaje de éxito si se ha realizado un pedido correctamente -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <!-- Paso 2: Dirección de Envío (placeholder) -->
         <h2>Dirección de Envío</h2>
         <p><em>Aquí iría el formulario para introducir la dirección de envío.</em></p>
@@ -58,11 +65,11 @@
             <p><strong>Dirección:</strong> (a completar)</p>
             <p><strong>Método de pago:</strong> (a completar)</p>
         </div>
+<form method="POST" action="{{ route('checkout.process') }}">
+    @csrf
+    <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+    <p class="text-muted mt-2"><small>Completa dirección y método de pago para habilitar esta acción.</small></p>
+</form>
 
-        <form method="POST" action="#">
-            @csrf
-            <button type="submit" class="btn btn-success" >Confirmar Pedido</button>
-            <p class="text-muted mt-2"><small>Completa dirección y método de pago para habilitar esta acción.</small></p>
-        </form>
     </div>
 @endsection
