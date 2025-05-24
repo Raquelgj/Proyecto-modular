@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container py-5"> <!-- Añade container para márgenes automáticos y padding vertical -->
-    <h2 class="mb-4 text-center">Productos de la categoría: {{ $categoria->name }}</h2>
+   
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ $categoria->name }}</li>
+  </ol>
+</nav>
+
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         @foreach ($productos as $producto)

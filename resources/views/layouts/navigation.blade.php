@@ -31,14 +31,13 @@
             <!-- Derecha: búsqueda, carrito, perfil -->
             <form class="d-flex me-3" role="search" method="GET" action="{{ route('productos.buscar') }}">
                 <input class="form-control me-2 search-input" type="search" name="q" placeholder="Buscar" aria-label="Buscar">
-                <button class="btn custom-btn" type="submit">Buscar</button>
             </form>
 
 
 
             <!-- Botón carrito -->
             <button class="btn btn-outline-secondary me-3 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-controls="cartSidebar">
-                🛒
+                  <i class="bi bi-cart3 fs-5"></i>
                 @if(session('cart') && count(session('cart')) > 0)
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
                     {{ collect(session('cart'))->sum('quantity') }}
@@ -55,6 +54,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+                    <li><a class="dropdown-item" href="{{ route('orders.index') }}">Mis pedidos</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

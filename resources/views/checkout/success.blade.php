@@ -1,4 +1,4 @@
-// resources/views/checkout/success.blade.php
+
 @extends('layouts.app')
 
 @section('content')

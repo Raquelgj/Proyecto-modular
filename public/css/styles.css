@@ -3,10 +3,8 @@ html, body {
     margin: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+body > *:not(footer) {
+  flex: 1 0 auto; /* Ocupa el espacio disponible */
 }
 
 main {
@@ -49,6 +47,7 @@ main {
     color: #000; /* texto oscuro */
     clear: both;
     margin-top: 0;
+    flex-shrink: 0;
 }
 .footer-custom a {
     color: #000;
@@ -154,7 +153,7 @@ main {
 }
 
 .btn-success {
-    background-color: #28a745;
+    background-color: #559678;
     color: white;
 }
 
@@ -178,7 +177,7 @@ main {
 .custom-btn {
     background-color: transparent;
     border: 1px solid #a3cfbb;
-    color: #a3cfbb;
+    color: #559678;
     height: 40px; 
     padding: 0 0px; 
     font-size: 1rem; 
@@ -522,7 +521,7 @@ form .btn {
 /* Estilo para los mensajes de éxito */
 .password-success-message {
     font-size: 1rem;
-    color: #48bb78; /* Verde */
+    color: #9dcfb9; /* Verde */
     font-weight: 600;
     margin-top: 1rem;
 }
@@ -629,3 +628,5 @@ form .btn {
 .account-deletion-modal-buttons .danger-button:hover {
     background-color: #c53030; /* Rojo más oscuro */
 }
+
+

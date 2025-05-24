@@ -8,6 +8,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     $categorias = Category::all();
@@ -88,6 +89,15 @@ Route::get('/producto/{id}', [\App\Http\Controllers\ProductController::class, 's
 // barra de busqueda
 
 Route::get('/buscar', [App\Http\Controllers\ProductController::class, 'buscar'])->name('productos.buscar');
+
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+});
+
 
 
 require __DIR__.'/auth.php';

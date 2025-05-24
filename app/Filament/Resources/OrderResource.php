@@ -7,7 +7,9 @@ use Filament\Resources\Resource;
 use Filament\Forms;
 use Filament\Tables;
 use App\Filament\Resources\OrderResource\Pages\ListOrders;
-use App\Filament\Resources\OrderResource\Pages\ViewOrder;  // Corregido
+use App\Filament\Resources\OrderResource\Pages\ViewOrder;  
+use App\Filament\Resources\OrderResource\Pages\EditOrder;
+
 
 class OrderResource extends Resource
 {
@@ -35,20 +37,25 @@ class OrderResource extends Resource
         ]);
     }
 
-    public static function table(Tables\Table $table): Tables\Table
-    {
-        return $table->columns([
-            Tables\Columns\TextColumn::make('id')->label('ID'),
-            Tables\Columns\TextColumn::make('user.name')->label('Cliente'),
-            Tables\Columns\TextColumn::make('total_price')->money('EUR'),
-            Tables\Columns\TextColumn::make('status')->badge(),
-            // Mostrar el nombre del producto asociado con cada orden
-            Tables\Columns\TextColumn::make('items.product.name')->label('Producto'), // Esto debería funcionar si la relación 'items' está bien definida
-        ])
-        ->actions([
-            Tables\Actions\ViewAction::make(),
-        ]);
-    }
+public static function table(Tables\Table $table): Tables\Table
+{
+    return $table->columns([
+        Tables\Columns\TextColumn::make('id')->label('ID'),
+        Tables\Columns\TextColumn::make('user.name')->label('Cliente'),
+        Tables\Columns\TextColumn::make('total_price')->money('EUR'),
+        Tables\Columns\TextColumn::make('status')->badge(),
+        Tables\Columns\TextColumn::make('address')->label('Dirección')->limit(30),
+        Tables\Columns\TextColumn::make('city')->label('Ciudad'),
+        Tables\Columns\TextColumn::make('postal_code')->label('Código Postal'),
+        Tables\Columns\TextColumn::make('country')->label('País'),
+        Tables\Columns\TextColumn::make('payment_method')->label('Método de Pago'),
+    ])
+     ->actions([
+        Tables\Actions\ViewAction::make(),
+        Tables\Actions\EditAction::make(), 
+    ]);
+}
+
     
 
     public static function getRelations(): array
@@ -56,11 +63,12 @@ class OrderResource extends Resource
         return [];
     }
 
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListOrders::route('/'),
-            'view' => ViewOrder::route('/{record}'),  // Corrección aquí también
-        ];
-    }
+public static function getPages(): array
+{
+    return [
+        'index' => ListOrders::route('/'),
+        'view' => ViewOrder::route('/{record}'),
+        'edit' => EditOrder::route('/{record}/edit'),  // Añade esta línea
+    ];
+}
 }
