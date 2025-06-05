@@ -100,4 +100,8 @@ Route::middleware('auth')->group(function () {
 
 
 
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+
+
 require __DIR__.'/auth.php';
