@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Factura {{ $invoiceNumber }}</title>
+    <title>Factura {{ $invoice->invoice_number }}</title>
     <style>
         body { font-family: Arial, sans-serif; font-size: 14px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -11,11 +11,11 @@
     </style>
 </head>
 <body>
-    <h1>Factura {{ $invoiceNumber }}</h1>
-    <p>Fecha: {{ $invoiceDate->format('d/m/Y') }}</p>
+    <h1>Factura {{ $invoice->invoice_number }}</h1>
+    <p>Fecha: {{ $invoice->invoice_date->format('d/m/Y') }}</p>
     <h2>Datos del Cliente</h2>
-    <p>Nombre: {{ $order->user->name }}</p>
-    <p>Dirección: {{ $order->address }}, {{ $order->city }}, {{ $order->postal_code }}, {{ $order->country }}</p>
+    <p>Nombre: {{ $invoice->order->user->name }}</p>
+    <p>Dirección: {{ $invoice->order->address }}, {{ $invoice->order->city }}, {{ $invoice->order->postal_code }}, {{ $invoice->order->country }}</p>
 
     <h2>Detalles del Pedido</h2>
     <table>
@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($order->items as $item)
+            @foreach($invoice->order->items as $item)
             <tr>
                 <td>{{ $item->product->name }}</td>
                 <td>{{ $item->quantity }}</td>
@@ -39,6 +39,6 @@
         </tbody>
     </table>
 
-    <h3>Total: {{ number_format($order->total_price, 2, ',', '.') }} €</h3>
+    <h3>Total: {{ number_format($invoice->order->total_price, 2, ',', '.') }} €</h3>
 </body>
 </html>

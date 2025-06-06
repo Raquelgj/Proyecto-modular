@@ -15,7 +15,7 @@
     <section class="featured-products py-5" style="padding-top: 80px;">
         <div class="container">
             <h3 class="text-center mb-4">Productos Destacados</h3>
-            <div class="p-4 rounded-4" style="background-color: #ECF4F2;">
+            <div class="p-4 rounded-4" style="background-color: #ffffff;">
                 <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner text-center">
                         @foreach ($featuredProducts as $index => $product)

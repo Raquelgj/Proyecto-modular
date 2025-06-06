@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('featured')->default(false);  // Columna para marcar productos destacados
-        });
+        // Schema::table('products', function (Blueprint $table) {
+        //     $table->boolean('featured')->default(false);  // Columna para marcar productos destacados
+        // });
     }
 
     /**
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('featured');  // Eliminar la columna si se revierte la migración
-        });
+        // Schema::table('products', function (Blueprint $table) {
+        //     $table->dropColumn('featured');  // Eliminar la columna si se revierte la migración
+        // });
     }
 };

@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::table('products', function (Blueprint $table) {
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['category_id']); // Primero se elimina la foreign key
-            $table->dropColumn('category_id');   // Luego la columna
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
         });
     }
 };

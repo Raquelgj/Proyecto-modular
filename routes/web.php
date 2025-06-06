@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrderController;
 
+
 Route::get('/', function () {
     $categorias = Category::all();
     $featuredProducts = Product::where('featured', true)->take(6)->get();
@@ -21,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $categorias = Category::all();  // Obtener todas las categorías
-    return view('dashboard', compact('categorias'));  
+    return view('dashboard', compact('categorias'));
 })->name('dashboard');
 
 
@@ -102,6 +103,12 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+
+
+// Rutas para las páginas legales
+Route::view('/privacy', 'Privacy.privacy-policy')->name('privacy');
+Route::view('/legal', 'Privacy.legal-notice')->name('legal');
+Route::view('/terms', 'Privacy.terms-and-conditions')->name('terms');
 
 
 require __DIR__.'/auth.php';

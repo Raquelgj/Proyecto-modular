@@ -38,7 +38,7 @@ main {
     background-color: #a3cfbb;
     color: white;
     border:none;
-   
+
 }
 /* footer */
 
@@ -91,7 +91,7 @@ main {
 
 /* imagen sobre nosotros */
 .rounded-image {
-    border-radius: 15px; 
+    border-radius: 15px;
 }
 
 /* sobre nosotros texto */
@@ -99,16 +99,16 @@ main {
 
 .row.align-items-start {
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
 .col-md-6 {
-    flex: 0 0 48%; 
+    flex: 0 0 48%;
 }
 
 #sobre-nosotros-title {
-    font-size: 2.5rem; 
-    font-weight: bold; 
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 /* redes texto */
 .redes{
@@ -169,8 +169,8 @@ main {
 
 
 .search-input {
-    height: 45px; 
-    font-size: 1.2rem; 
+    height: 45px;
+    font-size: 1.2rem;
 }
 
 /* Estilo para el botón */
@@ -178,10 +178,10 @@ main {
     background-color: transparent;
     border: 1px solid #a3cfbb;
     color: #559678;
-    height: 40px; 
-    padding: 0 0px; 
-    font-size: 1rem; 
-    white-space: nowrap; 
+    height: 40px;
+    padding: 0 0px;
+    font-size: 1rem;
+    white-space: nowrap;
     line-height: 1;
 }
 
@@ -215,7 +215,7 @@ main {
 /* .carousel-image {
     max-height: 250px;
     width: 100%;
-   
+
 } */
 
 /* Estilos generales para todo el dashboard */
@@ -630,3 +630,21 @@ form .btn {
 }
 
 
+/* login */
+.card {
+    border-radius: 1rem;
+}
+
+.card-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.btn-success {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+}
