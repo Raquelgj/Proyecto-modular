@@ -31,7 +31,7 @@
                 <button type="submit" class="custom-button w-50 mt-3">Añadir al carrito</button>
             </form>
             <br>
-            <p>{{ $producto->description }}</p>
+            <p class="descripcion-producto">{{ $producto->description }}</p>
         </div>
     </div>
 </div>

@@ -4,41 +4,23 @@
     <meta charset="UTF-8">
     <title>Factura {{ $invoice->invoice_number }}</title>
     <style>
-        body { font-family: Arial, sans-serif; font-size: 14px; }
+        body { font-family: Arial, sans-serif; font-size: 14px; margin: 20px; }
+        h1, h2, h3 { margin-bottom: 10px; }
+        p { margin: 4px 0; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #000; padding: 8px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
         th { background-color: #f0f0f0; }
     </style>
 </head>
 <body>
     <h1>Factura {{ $invoice->invoice_number }}</h1>
-    <p>Fecha: {{ $invoice->invoice_date->format('d/m/Y') }}</p>
+    <p><strong>Fecha:</strong> {{ $invoice->invoice_date->format('d/m/Y') }}</p>
+
     <h2>Datos del Cliente</h2>
-    <p>Nombre: {{ $invoice->order->user->name }}</p>
-    <p>Dirección: {{ $invoice->order->address }}, {{ $invoice->order->city }}, {{ $invoice->order->postal_code }}, {{ $invoice->order->country }}</p>
+    <p><strong>Nombre:</strong> {{ $invoice->order->user->name }}</p>
+    <p><strong>Dirección:</strong> {{ $invoice->order->address }}, {{ $invoice->order->city }}, {{ $invoice->order->postal_code }}, {{ $invoice->order->country }}</p>
 
     <h2>Detalles del Pedido</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($invoice->order->items as $item)
-            <tr>
-                <td>{{ $item->product->name }}</td>
-                <td>{{ $item->quantity }}</td>
-                <td>{{ number_format($item->price, 2, ',', '.') }} €</td>
-                <td>{{ number_format($item->price * $item->quantity, 2, ',', '.') }} €</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
     <h3>Total: {{ number_format($invoice->order->total_price, 2, ',', '.') }} €</h3>
 </body>
 </html>

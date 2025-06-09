@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Checkout</h1>
 
     <!-- Paso 1: Revisión del carrito -->
     <h2>Tu carrito:</h2>
@@ -42,53 +41,61 @@
         </div>
     @endif
 
-    <!-- FORMULARIO de dirección y confirmación de pedido -->
+    <!-- FORMULARIO en columnas -->
     <form method="POST" action="{{ route('checkout.process') }}">
         @csrf
+        <div class="row">
 
-        <!-- Paso 2: Dirección de Envío -->
-        <h2>Dirección de Envío</h2>
-        <div class="mb-3">
-            <label for="address" class="form-label">Dirección</label>
-            <input type="text" name="address" id="address" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="city" class="form-label">Ciudad</label>
-            <input type="text" name="city" id="city" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="postal_code" class="form-label">Código Postal</label>
-            <input type="text" name="postal_code" id="postal_code" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="country" class="form-label">País</label>
-            <input type="text" name="country" id="country" class="form-control" required>
-        </div>
+            <!-- Dirección de Envío -->
+            <div class="col-md-4 mb-4">
+                <h4>Dirección de Envío</h4>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Dirección</label>
+                    <input type="text" name="address" id="address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input type="text" name="city" id="city" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="postal_code" class="form-label">Código Postal</label>
+                    <input type="text" name="postal_code" id="postal_code" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" name="country" id="country" class="form-control" required>
+                </div>
+            </div>
 
-        <!-- Paso 3: Método de Pago -->
-        <h2>Método de Pago</h2>
-        <div class="mb-3">
-            <select name="payment_method" class="form-select" required>
-                <option value="">Selecciona un método de pago</option>
-                <option value="card">Tarjeta de crédito</option>
-                <option value="paypal">PayPal</option>
-                <option value="cod">Pago contra reembolso</option>
-            </select>
-        </div>
+            <!-- Método de Pago -->
+            <div class="col-md-4 mb-4">
+                <h4>Método de Pago</h4>
+                <div class="mb-3">
+                    <label for="payment_method" class="form-label">Selecciona un método</label>
+                    <select name="payment_method" class="form-select" required>
+                        <option value="">Selecciona un método de pago</option>
+                        <option value="card">Tarjeta de crédito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="cod">Pago contra reembolso</option>
+                    </select>
+                </div>
+            </div>
 
-        <!-- Paso 4: Confirmar Pedido -->
-        <h2>Resumen del Pedido</h2>
-        <div class="alert alert-info">
-            <p><strong>Productos:</strong></p>
-            <ul>
-                @foreach ($cartItems as $item)
-                    <li>{{ $item['name'] }} (x{{ $item['quantity'] }}) - {{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}€</li>
-                @endforeach
-            </ul>
-            <p><strong>Total:</strong> {{ number_format($totalPrice, 2, ',', '.') }}€</p>
-        </div>
+            <!-- Resumen del Pedido -->
+            <div class="col-md-4 mb-4">
+                <h4>Resumen del Pedido</h4>
+                <div class="alert alert-info small">
+                    <ul class="mb-2">
+                        @foreach ($cartItems as $item)
+                            <li>{{ $item['name'] }} (x{{ $item['quantity'] }}) - {{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}€</li>
+                        @endforeach
+                    </ul>
+                    <p><strong>Total:</strong> {{ number_format($totalPrice, 2, ',', '.') }}€</p>
+                </div>
 
-        <button type="submit" class="btn btn-success">Confirmar Pedido</button>
+                <button type="submit" class="btn btn-success w-100 w-md-auto" style="max-width: 100%;">Confirmar Pedido</button>
+            </div>
+        </div>
     </form>
 </div>
 @endsection

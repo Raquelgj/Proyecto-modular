@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Carrito de compras</h1>
+    <div class="container my-4">
+        <h1 class="mb-4">Carrito de compras</h1>
 
         @if(session('success'))
             <div class="alert alert-success">
@@ -12,8 +12,8 @@
 
         @if(count($cart) > 0)
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
+                <table class="table table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Imagen</th>
                             <th>Producto</th>
@@ -26,32 +26,36 @@
                     <tbody>
                         @foreach($cart as $productId => $item)
                             <tr>
-                                <td><img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" width="100"></td>
+                                <td style="width: 110px;">
+                                    <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}" class="img-fluid" style="max-height: 80px;">
+                                </td>
                                 <td>{{ $item['name'] }}</td>
-                                <td>
-                                    <form action="{{ route('cart.update', $productId) }}" method="POST">
+                                <td style="min-width: 100px;">
+                                    <form action="{{ route('cart.update', $productId) }}" method="POST" class="d-flex flex-column align-items-start gap-2">
                                         @csrf
                                         @method('PATCH')
-                                        <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" class="form-control" style="width: 60px;">
-                                        <button type="submit" class="btn btn-warning btn-sm mt-2">Actualizar</button>
+                                        <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" class="form-control form-control-sm" style="width: 70px;">
+                                        <button type="submit" class="btn btn-success btn-sm px-3">Actualizar</button>
                                     </form>
                                 </td>
-                                <td>{{ number_format($item['price'], 2, ',', '.') }}€</td>
-                                <td>{{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}€</td>
-                                <td>
+                                <td style="min-width: 80px;">{{ number_format($item['price'], 2, ',', '.') }}€</td>
+                                <td style="min-width: 90px;">{{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}€</td>
+                                <td style="min-width: 90px;">
                                     <form action="{{ route('cart.remove', $productId) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm px-3">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <h3>Total:{{ number_format(array_sum(array_map(function($item) { return $item['price'] * $item['quantity']; }, $cart)), 2, ',', '.') }}€</h3>
+            </div>
 
-                <a href="{{ route('checkout.index') }}" class="btn btn-success">Proceder al Pago</a>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+                <h3>Total: {{ number_format(array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart)), 2, ',', '.') }}€</h3>
+                <a href="{{ route('checkout.index') }}" class="btn btn-success btn-lg mt-3 mt-md-0 px-4">Proceder al Pago</a>
             </div>
         @else
             <p>Tu carrito está vacío. Añade productos antes de comprar.</p>

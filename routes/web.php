@@ -109,6 +109,9 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::view('/privacy', 'Privacy.privacy-policy')->name('privacy');
 Route::view('/legal', 'Privacy.legal-notice')->name('legal');
 Route::view('/terms', 'Privacy.terms-and-conditions')->name('terms');
+Route::view('/politica-cookies', 'privacy.politica-cookies')->name('cookies');
+
+
 
 
 require __DIR__.'/auth.php';

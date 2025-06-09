@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -14,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-   
+
 
 </head>
 
@@ -56,22 +55,27 @@
         <i class="bi bi-whatsapp fs-2"></i>
     </a>
 
-    <script>
-        window.onload = function () {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookie-banner').style.display = 'block';
-            }
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
 
-            document.getElementById('accept-cookies').addEventListener('click', function () {
-                localStorage.setItem('cookiesAccepted', 'true');
-                document.getElementById('cookie-banner').style.display = 'none';
-            });
+    // Solo mostrar el banner si el usuario no ha aceptado ni rechazado antes
+    if (!localStorage.getItem("cookieDecision")) {
+        banner.style.display = "block";
+    }
 
-            document.getElementById('decline-cookies').addEventListener('click', function () {
-                document.getElementById('cookie-banner').style.display = 'none';
-            });
-        };
-    </script>
+    function hideBannerAndSave(decision) {
+        localStorage.setItem("cookieDecision", decision); // Guarda "accepted" o "declined"
+        banner.style.display = "none";
+    }
+
+    acceptBtn.addEventListener("click", () => hideBannerAndSave("accepted"));
+    declineBtn.addEventListener("click", () => hideBannerAndSave("declined"));
+});
+</script>
+
 </body>
 
 </html>
