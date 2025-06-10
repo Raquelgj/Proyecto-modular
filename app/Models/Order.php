@@ -45,4 +45,11 @@ class Order extends Model
             default => $this->status,
         };
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }
+
+

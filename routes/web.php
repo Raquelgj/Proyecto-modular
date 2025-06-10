@@ -9,6 +9,10 @@ use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrderController;
+use Filament\Facades\Filament;
+use App\Models\User;
+
+
 
 
 Route::get('/', function () {
@@ -110,6 +114,7 @@ Route::view('/privacy', 'Privacy.privacy-policy')->name('privacy');
 Route::view('/legal', 'Privacy.legal-notice')->name('legal');
 Route::view('/terms', 'Privacy.terms-and-conditions')->name('terms');
 Route::view('/politica-cookies', 'privacy.politica-cookies')->name('cookies');
+
 
 
 
