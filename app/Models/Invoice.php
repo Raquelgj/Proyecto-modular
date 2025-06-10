@@ -16,4 +16,11 @@ class Invoice extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    public function user()
+{
+
+
+    return $this->hasOneThrough(User::class, Order::class);
+}
+
 }
