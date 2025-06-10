@@ -28,7 +28,7 @@
         </tbody>
     </table>
 
-<p><strong>Total: €{{ number_format($total, 2, ',', '.') }}</strong></p>
+<p><strong>Total: {{ number_format($total, 2, ',', '.') }}€</strong></p>
 
 
     <a href="{{ route('orders.index') }}" class="btn btn-secondary">Volver a mis pedidos</a>
