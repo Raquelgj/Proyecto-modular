@@ -11,7 +11,7 @@
             <p class="fw-bold h4">{{ number_format($producto->price, 2, ',', '.') }} €</p>
             <p><strong>Stock:</strong> {{ $producto->stock }}</p>
 
-            <form action="{{ route('cart.add', $producto->id) }}" method="POST" class="mt-auto">
+            <form action="{{ route('cart.addToCart', $producto->id) }}" method="POST" class="mt-auto">
                 @csrf
                 <label for="quantity">Cantidad:</label>
                 <input

@@ -24,6 +24,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->brandName('Aquatethys')
+            ->favicon(asset('images/logo.png'))
             ->default()
             ->id('admin')
             ->path('admin')

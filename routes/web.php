@@ -116,7 +116,7 @@ Route::view('/terms', 'Privacy.terms-and-conditions')->name('terms');
 Route::view('/politica-cookies', 'privacy.politica-cookies')->name('cookies');
 
 
-
+Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.addToCart');
 
 
 require __DIR__.'/auth.php';

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5"> <!-- Añade container para márgenes automáticos y padding vertical -->
-   
+
     <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Inicio</a></li>
@@ -23,7 +23,7 @@
                     <h5 class="card-title">{{ $producto->name }}</h5>
                     <p class="fw-bold">{{ number_format($producto->price, 2, ',', '.') }} €</p>
 
-                    <form action="{{ route('cart.add', $producto->id) }}" method="POST" class="mt-auto">
+                    <form action="{{ route('cart.addToCart', $producto->id) }}" method="POST" class="mt-auto">
                         @csrf
                         <label for="quantity">Cantidad:</label>
                         <input

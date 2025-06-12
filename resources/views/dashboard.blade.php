@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-md-6">
                     <p>
-                        En Aquatethys, somos apasionados por la acuariofilia y nos dedicamos a ofrecer productos de alta calidad para todos los amantes de los acuarios. Nuestra misión es hacer que tu experiencia con los acuarios sea más fácil y agradable, brindándote productos de calidad, asesoría y atención al cliente excepcionales.
+                       Aqueatethys es una empresa joven y apasionada por el mundo acuático, que ha comenzado a ofrecer una amplia gama de productos especializados para acuarios. Su misión es proporcionar a los entusiastas de los acuarios todo lo necesario para crear ecosistemas saludables y estéticamente impresionantes. Desde alimentos de calidad para gambas y peces a sustratos para plantas y gambas, Aqueatethys se destaca por su compromiso con la sostenibilidad y el bienestar de las especies. La empresa también brinda asesoría personalizada para ayudar a sus clientes a mantener sus acuarios en condiciones óptimas.
                     </p>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="col-md-6">
                 <p>Si tienes preguntas sobre nuestros productos para gambas, no dudes en contactarnos. Estamos aquí para ayudarte en tu experiencia de compra.</p>
                 <ul>
-                    <li><strong>Soporte</strong>: +34 695233333</li>
+                    <li><strong>Soporte</strong>: +34 661312784</li>
                     <li><strong>Asistencia</strong>: <a href="mailto:Aqueatethys@gmail.com">Aqueatethys@gmail.com</a></li>
                 </ul>
             </div>
